@@ -1,0 +1,5 @@
+name = "Snyk"
+grammar = "snyk"
+# Insert paths for supported ecosystems
+path_suffixes = ["myl"]
+line_comments = ["snyk: "]

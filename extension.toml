@@ -1,0 +1,11 @@
+id = "snyk-lsp-zed"
+name = "Snyk LSP Zed"
+version = "0.0.1"
+schema_version = 1
+authors = ["Vincent Desloover <vincent.desloover.dev@gmail.com>"]
+description = "A Zed extension that leverages the Snyk LSP"
+repository = "https://github.com/VinceDeslo/snyk-zed"
+
+[language_servers.snyk]
+name = "Snyk LSP"
+languages = ["JavaScript"]

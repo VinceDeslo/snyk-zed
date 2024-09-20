@@ -1,0 +1,96 @@
+use serde::Serialize;
+
+#[derive(Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SnykInitializationOptions {
+    activate_snyk_open_source: Option<String>,
+    activate_snyk_code: Option<String>,
+    activate_snyk_iac: Option<String>,
+    insecure: Option<String>,
+    endpoint: Option<String>,
+    additional_params: Option<String>,
+    additional_env: Option<String>,
+    path: Option<String>,
+    send_error_reports: Option<String>,
+    organization: Option<String>,
+    enable_telemetry: Option<String>,
+    manage_binaries_automatically: Option<String>,
+    cli_path: Option<String>,
+    token: Option<String>,
+    integration_name: Option<String>,
+    integration_version: Option<String>,
+    automatic_authentication: Option<String>,
+    device_id: Option<String>,
+    filter_severity: Option<SeverityFilter>,
+    enable_trusted_folders_feature: Option<String>,
+    trusted_folders: Option<Vec<String>>,
+    activate_snyk_code_security: Option<String>,
+    activate_snyk_code_quality: Option<String>,
+    os_platform: Option<String>,
+    os_arch: Option<String>,
+    runtime_version: Option<String>,
+    runtime_name: Option<String>,
+    scanning_mode: Option<String>,
+    authentication_method: String,
+    snyk_code_api: Option<String>,
+    enable_snyk_learn_code_actions: Option<String>,
+    // enable_snyk_oss_quick_fix_code_actions: Option<String>,
+    required_protocol_version: String,
+    hover_verbosity: i32,
+    output_format: String,
+    enable_delta_findings: String,
+    // folder_configs: Vec<FolderConfig>,
+}
+
+
+#[derive(Serialize)]
+struct SeverityFilter {
+    critical: bool,
+    high: bool,
+    medium: bool,
+    low: bool,
+}
+
+impl Default for SnykInitializationOptions {
+    fn default() -> Self {
+        Self {
+            activate_snyk_open_source: Some("false".to_string()),
+            activate_snyk_code: Some("false".to_string()),
+            activate_snyk_iac: Some("false".to_string()),
+            insecure: None,
+            endpoint: None, 
+            additional_params: None,
+            additional_env: None,
+            path: None, 
+            send_error_reports: Some("true".to_string()),
+            organization: None,
+            enable_telemetry: Some("false".to_string()),
+            manage_binaries_automatically: Some("false".to_string()),
+            cli_path: None,
+            token: None, 
+            integration_name: Some("zed-extension-name".to_string()),
+            integration_version: Some("zed-extension-version".to_string()),
+            automatic_authentication: Some("false".to_string()),
+            device_id: None,
+            filter_severity: None,
+            enable_trusted_folders_feature: Some("false".to_string()),
+            trusted_folders: Some(Vec::new()),
+            activate_snyk_code_security: Some("false".to_string()),
+            activate_snyk_code_quality: Some("false".to_string()),
+            os_platform: Some("lsp-os-platform".to_string()),
+            os_arch: Some("lsp-os-arch".to_string()),
+            runtime_version: None,
+            runtime_name: None,
+            scanning_mode: None,
+            authentication_method: "oauth".to_string(),
+            snyk_code_api: None,
+            enable_snyk_learn_code_actions: None,
+            // enable_snyk_oss_quick_fix_code_actions: Option<String>,
+            required_protocol_version: "required-lsp-protocol-version".to_string(),
+            hover_verbosity: 1,
+            output_format: "html".to_string(),
+            enable_delta_findings: "false".to_string(),
+            // folder_configs: Vec<FolderConfig>,
+        }
+    }
+}
